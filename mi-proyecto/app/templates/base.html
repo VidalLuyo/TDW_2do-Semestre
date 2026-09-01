@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>    {% block titulo %}   Clase Flask          {% endblock %}         </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    {% block css %} {% endblock %}
+
+</head>
+<body>
+
+    <nav>
+        <a href="/"> Inicio </a>
+        <a href="/carrusel"> Carrusel </a>
+        <a href="/slider"> Slider </a>
+    </nav>
+
+    <div class="container">
+        {% block contenido %} {% endblock %}
+    </div>
+
+    {% block js %} {% endblock %}
+    
+</body>
+</html>
