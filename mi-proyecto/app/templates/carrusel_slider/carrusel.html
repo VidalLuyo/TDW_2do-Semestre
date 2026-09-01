@@ -13,8 +13,10 @@
 
         <button class="btn prev" onclick="mover(-1)">&#10094; </button>
         <button class="btn next" onclick="mover(1)">&#10095; </button>
-
-
     </div>
 
+{% endblock %}
+
+{% block css %} 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/carrusel.css') }}">
 {% endblock %}
