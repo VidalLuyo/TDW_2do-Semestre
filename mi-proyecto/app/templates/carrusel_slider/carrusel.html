@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block titulo %} Carrusel {% endblock %}
+
+{% block contenido %}
+
+    <h2>Carrusel de Img</h2>
+    <div class="carousel">
+        <div class="slides" id="slides">
+            <div class="slide active"><img src="{{ url_for('static', filename='img/imagen01.jpg') }}" alt="Imagen 1" ></div>
+            <div class="slide"><img src="{{ url_for('static', filename='img/imagen02.jpg') }}" alt="Imagen 2" ></div>        
+            <div class="slide"><img src="{{ url_for('static', filename='img/imagen03.jpg') }}" alt="Imagen 3" ></div>
+        </div>
+
+        <button class="btn prev" onclick="mover(-1)">&#10094; </button>
+        <button class="btn next" onclick="mover(1)">&#10095; </button>
+
+
+    </div>
+
+{% endblock %}
