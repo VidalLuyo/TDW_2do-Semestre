@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Clientes{% endblock %}
+
+{% block content %}
+<div class="mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+    <div>
+        <p class="text-sm font-semibold uppercase tracking-wide text-indigo-600">Panel de ejemplo</p>
+        <h1 class="mt-1 text-3xl font-bold tracking-tight text-slate-900">Clientes</h1>
+        <p class="mt-2 text-sm text-slate-600">Administra la información básica de tus clientes.</p>
+    </div>
+    <a href="{{ url_for('clientes.crear') }}" class="btn-primary">Nuevo cliente</a>
+</div>
+
+<div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+    {% if clientes %}
+        <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-slate-200">
+                <thead class="bg-slate-50">
+                    <tr>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-500">Nombre</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-500">Correo</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-500">Teléfono</th>
+                        <th scope="col" class="px-6 py-3 text-right text-xs font-semibold uppercase tracking-wider text-slate-500">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                    {% for cliente in clientes %}
+                        <tr class="transition hover:bg-slate-50">
+                            <td class="whitespace-nowrap px-6 py-4 text-sm font-semibold text-slate-900">{{ cliente.nombre }}</td>
+                            <td class="whitespace-nowrap px-6 py-4 text-sm text-slate-600">{{ cliente.correo }}</td>
+                            <td class="whitespace-nowrap px-6 py-4 text-sm text-slate-600">{{ cliente.telefono }}</td>
+                            <td class="whitespace-nowrap px-6 py-4 text-right text-sm">
+                                <a href="{{ url_for('clientes.editar', cliente_id=cliente.id) }}" class="btn-secondary">Editar</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="border-t border-slate-100 bg-slate-50 px-6 py-3 text-xs text-slate-500">
+            Total: {{ clientes|length }} cliente(s)
+        </div>
+    {% else %}
+        <div class="px-6 py-16 text-center">
+            <h2 class="text-lg font-semibold text-slate-900">No hay clientes registrados</h2>
+            <p class="mx-auto mt-2 max-w-md text-sm text-slate-600">Crea el primer cliente para ver la tabla en funcionamiento.</p>
+            <a href="{{ url_for('clientes.crear') }}" class="btn-primary mt-6">Crear cliente</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

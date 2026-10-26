@@ -1,0 +1,33 @@
+# Variables de entorno
+.env
+.env.*
+!.env.example
+
+# Entornos virtuales de Python
+.venv/
+venv/
+env/
+
+# Dependencias de Node: Tailwind se compila en un entorno temporal externo.
+node_modules/
+package.json
+package-lock.json
+
+# Cachés de Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Bases de datos SQLite locales
+*.db
+*.sqlite
+*.sqlite3
+instance/
+
+# Archivos de editores y del sistema
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

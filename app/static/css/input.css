@@ -1,0 +1,31 @@
+/* Entrada de Tailwind: se compila a output.css con la CLI. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply antialiased;
+    }
+}
+
+@layer components {
+    /* Botón principal reutilizable en listados y formularios. */
+    .btn-primary {
+        @apply inline-flex items-center justify-center rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2;
+    }
+
+    /* Botón secundario para acciones que no son principales. */
+    .btn-secondary {
+        @apply inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2;
+    }
+
+    /* Etiquetas y campos compartidos por el formulario de clientes. */
+    .form-label {
+        @apply block text-sm font-semibold text-slate-700;
+    }
+
+    .form-input {
+        @apply mt-2 block w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200;
+    }
+}

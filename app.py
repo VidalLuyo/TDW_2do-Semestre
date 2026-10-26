@@ -1,11 +1,8 @@
-from flask import Flask, render_template #Creacion de la aplicacion
+"""Punto de entrada para ejecutar la demo con Flask."""
 
-app = Flask(__name__) 
+from app import create_app
 
-@app.route('/') # la pagina principal direcciona a la raiz
-def index():
-    return render_template('index.html') # mostrar el html
+app = create_app()
 
-if __name__== '__main__': 
-    app.run(debug=True) # inicia el servidor
-    
+if __name__ == "__main__":
+    app.run(debug=True)
